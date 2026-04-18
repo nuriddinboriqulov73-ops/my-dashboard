@@ -1,108 +1,148 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <title>Shaxsiy Dashboard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f6fb;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaxsiy Dashboard</title>
 
-    header {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6fb;
+}
 
-    header img {
-      width: 70px;
-      position: absolute;
-      left: 20px;
-      top: 10px;
-      border-radius: 50%;
-    }
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
 
-    h1 { margin: 0; }
+header img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-    /* MENU */
-    .menu {
-      display: flex;
-      justify-content: space-around;
-      background: white;
-      padding: 10px 0;
-      position: relative;
-    }
+h1 { margin: 0; font-size: 20px; }
 
-    .menu button {
-      background: none;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      position: relative;
-      padding: 10px;
-    }
+/* MENU */
+.menu {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 10px 0;
+  position: relative;
+  flex-wrap: wrap;
+}
 
-    .underline {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 4px;
-      width: 0;
-      background: red;
-      transition: all 0.4s ease;
-    }
+.menu button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      padding: 20px;
-    }
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: red;
+  transition: all 0.3s ease;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 15px;
+}
 
-    .container { padding: 20px; }
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-    input, select, button.add {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-    }
+/* INPUTS */
+.container {
+  padding: 15px;
+}
 
-    button.add {
-      background: #667eea;
-      color: white;
-      cursor: pointer;
-    }
+input, select, button.add {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+}
 
-    .item {
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
-      margin-top: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
+button.add {
+  background: #667eea;
+  color: white;
+  cursor: pointer;
+}
 
-    a.call { color: green; text-decoration: none; font-weight: bold; }
-  </style>
+.item {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+a.call {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .menu button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu button {
+    width: 100%;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="https://i.imgur.com/4AiXzf8.jpeg" alt="dog logo">
+  <img src="https://i.imgur.com/4AiXzf8.jpeg">
   <h1>Mening Dashboardim</h1>
 </header>
 
@@ -115,86 +155,95 @@
 </div>
 
 <div class="cards">
-  <div class="card"><h3>💰 Balansim</h3><p id="balance">0 so'm</p></div>
-  <div class="card"><h3>📅 Oylik</h3><p>5-sana</p></div>
+  <div class="card"><h3>💰 Balans</h3><p id="balance">0 so'm</p></div>
   <div class="card"><h3>📉 Xarajat</h3><p id="expense">0 so'm</p></div>
   <div class="card"><h3>📈 Daromad</h3><p id="income">0 so'm</p></div>
+  <div class="card"><h3>📅 Oylik</h3><p>5-sana</p></div>
 </div>
 
 <div class="container">
   <h3>➕ Hisob qo‘shish</h3>
-  <input type="text" id="text" placeholder="Izoh">
-  <input type="number" id="amount" placeholder="Summa">
+  <input id="text" placeholder="Izoh">
+  <input id="amount" type="number" placeholder="Summa">
+
   <select id="type">
     <option value="income">Daromad</option>
     <option value="expense">Xarajat</option>
   </select>
+
   <button class="add" onclick="addItem()">Qo‘shish</button>
   <div id="list"></div>
 </div>
 
 <div class="container">
-  <h3>📞 Kontaktlar</h3>
-  <input type="text" id="name" placeholder="Ism">
-  <input type="tel" id="phone" placeholder="Telefon">
+  <h3>📞 Kontakt</h3>
+  <input id="name" placeholder="Ism">
+  <input id="phone" placeholder="Telefon">
   <button class="add" onclick="addContact()">Qo‘shish</button>
   <div id="contacts"></div>
 </div>
 
 <script>
-  let balance = 0, income = 0, expense = 0;
+let balance = 0, income = 0, expense = 0;
 
-  function addItem() {
-    let text = document.getElementById('text').value;
-    let amount = Number(document.getElementById('amount').value);
-    let type = document.getElementById('type').value;
-    if(text === '' || !amount) return;
+function addItem() {
+  let text = document.getElementById("text").value;
+  let amount = Number(document.getElementById("amount").value);
+  let type = document.getElementById("type").value;
 
-    if(type === 'income') { income += amount; balance += amount; }
-    else { expense += amount; balance -= amount; }
+  if(!text || !amount) return;
 
-    document.getElementById('income').innerText = income + ' so\'m';
-    document.getElementById('expense').innerText = expense + ' so\'m';
-    document.getElementById('balance').innerText = balance + ' so\'m';
-
-    let item = document.createElement('div');
-    item.className = 'item';
-    item.innerText = text + ' - ' + amount + ' so\'m';
-    document.getElementById('list').appendChild(item);
-
-    document.getElementById('text').value = '';
-    document.getElementById('amount').value = '';
+  if(type === "income") {
+    income += amount;
+    balance += amount;
+  } else {
+    expense += amount;
+    balance -= amount;
   }
 
-  function addContact() {
-    let name = document.getElementById('name').value;
-    let phone = document.getElementById('phone').value;
-    if(name === '' || phone === '') return;
+  document.getElementById("income").innerText = income + " so'm";
+  document.getElementById("expense").innerText = expense + " so'm";
+  document.getElementById("balance").innerText = balance + " so'm";
 
-    let div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `${name}<br>${phone}<br><a class="call" href="tel:${phone}">📞 Qo‘ng‘iroq</a>`;
-    document.getElementById('contacts').appendChild(div);
+  let div = document.createElement("div");
+  div.className = "item";
+  div.innerText = text + " - " + amount + " so'm";
+  document.getElementById("list").appendChild(div);
 
-    document.getElementById('name').value = '';
-    document.getElementById('phone').value = '';
-  }
+  document.getElementById("text").value = "";
+  document.getElementById("amount").value = "";
+}
 
-  // MENU ANIMATION RGB LINE
-  function moveLine(el) {
-    const line = document.getElementById('line');
-    const rect = el.getBoundingClientRect();
-    const parentRect = el.parentElement.getBoundingClientRect();
+function addContact() {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
 
-    line.style.width = rect.width + 'px';
-    line.style.left = (rect.left - parentRect.left) + 'px';
+  if(!name || !phone) return;
 
-    // random RGB color
-    let r = Math.floor(Math.random()*255);
-    let g = Math.floor(Math.random()*255);
-    let b = Math.floor(Math.random()*255);
-    line.style.background = `rgb(${r},${g},${b})`;
-  }
+  let div = document.createElement("div");
+  div.className = "item";
+  div.innerHTML = name + "<br>" + phone + "<br><a class='call' href='tel:" + phone + "'>📞 Qo‘ng‘iroq</a>";
+
+  document.getElementById("contacts").appendChild(div);
+
+  document.getElementById("name").value = "";
+  document.getElementById("phone").value = "";
+}
+
+function moveLine(el) {
+  const line = document.getElementById("line");
+  const rect = el.getBoundingClientRect();
+  const parent = el.parentElement.getBoundingClientRect();
+
+  line.style.width = rect.width + "px";
+  line.style.left = (rect.left - parent.left) + "px";
+
+  let r = Math.floor(Math.random()*255);
+  let g = Math.floor(Math.random()*255);
+  let b = Math.floor(Math.random()*255);
+  line.style.background = `rgb(${r},${g},${b})`;
+}
 </script>
 
 </body>
+</html>
